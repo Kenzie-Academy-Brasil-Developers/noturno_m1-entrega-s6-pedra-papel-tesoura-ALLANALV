@@ -15,6 +15,22 @@ ul{
 
 body{
     height: 100vh;
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: -55px;
+    background-position-y: 40px;
+}
+
+.remove{
+    display: none;
+}
+.remove-secaoJogada{
+    display: none;
+}
+
+.add{
+    display: block;
 }
 
 /* VARIABLES CSS */
@@ -26,3 +42,14 @@ body{
     --second-color:#1DC29B;
 }
 /* VARIABLES CSS */
+
+@keyframes apper {
+    from{
+        height: 0px;
+        width: 100%;
+    }
+    to{
+        height: 350px;
+        width: 100%;
+    }
+}

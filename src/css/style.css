@@ -1,6 +1,7 @@
 /* HEADER */
 header{
     padding: 10px 0px;
+    margin-bottom: 20px;
 }
 header h1{
     text-align: center;
@@ -9,13 +10,7 @@ header h1{
 /* HEADER */
 
 /* MAIN */
-main{
-    height: 90%;
-    background-image: url(../img/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: -55px;
-}
+main{}
     /* formulario */
     form{
         width: 300px;
@@ -28,7 +23,7 @@ main{
         justify-content: space-around;
         border-radius: 10px;
         box-shadow: 3px 5px 15px #000;
-        position: relative;
+        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
@@ -50,8 +45,153 @@ main{
         border-radius: 10px;
     }
     /* formulario */
+    /* placar do jogo */
+    .secaoPlacar{
+        display: block;
+        background-color: var(--primaty-color);
+        width: 85%;
+        height: 125px;
+        border-radius: 8px;
+        box-shadow: 3px 5px 15px #000;
+        padding: 10px;
+        margin: auto;
+        margin-bottom: 150px;
+    }
+    .secaoPlacar h2{
+        font-size: 2rem;
+        text-align: center;
+    }
+    .placar{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 90%;
+    }
+    .placar .valor{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    /* placar do jogo */
+
+    /* jogada */    
+    .secaoJogada{
+        display: flex;
+        width: 85%;
+        height: 290px;
+        border-radius: 8px;
+        background-color: var(--primaty-color);
+        padding: 15px;
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 3px 5px 15px #000;
+    }
+    .secaoJogada h2{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .simbolosJokempo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .simbolosJokempo figure{
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .simbolosJokempo figure img{
+        width: 50%;
+        margin: 10px 0px;
+        border-radius: 100%;
+    }
+    .simbolosJokempo figure figcaption{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .secaoJogada button{
+        width: 105px;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    /* jogada */
 /* MAIN */
 
 /* MEDIA QUERIE */
+@media only screen and (min-width: 768px){
+    /* formulario */
+    form{
+        width: 500px;
+        height: 412px;
+    }
+    form input[type = text]{
+        padding: 10px;
+        width: 60%;
+    }
+    form input[type = submit]{
+        width: 50%;
+        height: 45px;
+    }
+    /* formulario */
+    /* placar do jogo */
+    .secaoPlacar{
+        width: 50%;
+        height: 220px;
+    }
+    .secaoPlacar h2{
+        font-size: 3rem;
+    }
+    .placar .valor{
+        font-size: 3.5rem;
+    }
+    /* placar do jogo */
+    /* jogada */
+    .simbolosJokempo{
+        width: 100%;
+        justify-content: space-around;
+    }
+    /* jogada */
+}
 
+@media only screen and (min-width: 1045px){
+    /* jogada */
+    .secaoJogada{
+        width: 60%;
+        height: 350px;
+    }
+    .simbolosJokempo figure img{
+        width: 100%;
+    }
+    .simbolosJokempo figure figcaption{
+        font-size: 3rem;
+    }
+    .secaoJogada button{
+        width: 200px;
+        padding: 10px;
+        font-size: 2.5rem;
+    }
+    /* jogada */
+}
+@media only screen and (min-width: 1365px){
+    body{
+        background-position-x: 0;
+    }
+
+    .secaoJogada{
+        height: 390px;
+        margin-top: 100px;
+    }
+}
+
+@media only screen and (min-width: 1810px){
+    .secaoJogada{
+        height: 500px;
+        margin-top: 250px;
+    }
+}
 /* MEDIA QUERIE */
