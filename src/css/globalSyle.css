@@ -1,8 +1,10 @@
 /* RESET */
 body,header,main,footer,div,p,span,section
-img,figure,ul,li,h1,h2,h3,h4,button,input{
+img,figure,ul,li,h1,h2,h3,h4,button,input,
+form{
     margin: 0;
     padding: 0;
+    border: none;
     box-sizing: border-box;
 }
 
@@ -11,6 +13,16 @@ ul{
 }
 /* RESET */
 
+body{
+    height: 100vh;
+}
+
 /* VARIABLES CSS */
-:root{}
+:root{
+    font-size: 8px;
+    font-family: sans-serif;
+
+    --primaty-color: #52A1CD;
+    --second-color:#1DC29B;
+}
 /* VARIABLES CSS */
