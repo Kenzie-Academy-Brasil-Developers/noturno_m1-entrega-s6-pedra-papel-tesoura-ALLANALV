@@ -1,4 +1,4 @@
-import { partida, prepararPartida } from "./functions/base.js";
+import { partida, prepararPartida, resultadoRodada } from "./functions/base.js";
 
 const input_name = document.getElementById('nome-jogador');
 const submit = document.getElementById('button-submit');
@@ -20,10 +20,13 @@ function jogada() {
         jokempo.addEventListener('click', () => {
             partida();
 
+            setTimeout(resultadoRodada(jokempo.children[1]), 2000)
             const player = document.getElementById('jogada-player');
             player.appendChild(jokempo)
         });
     });
 }
 jogada()
+
+
 

@@ -40,15 +40,61 @@ function partida() {
     secao_rodada.classList.add('secaoRodada');
 
     const maquina = document.getElementById('jogada-maquina');
+    adicionarJogoMaquina(maquina, jogada_maquina);
 
-    adicionarJogo(maquina, jogada_maquina);
 }
 
-function adicionarJogo(parent, nodes) {
+function adicionarJogoMaquina(parent, nodes) {
     nodes.forEach((elem) => {
         parent.appendChild(elem)
     })
 }
 
+function resultadoRodada(jogadaPlayer) {
+    const maquina = document.getElementById('jokempo-maquina');
+    const valor_jogada_maquina = maquina.textContent
 
-export { prepararPartida, partida }
+    const p = document.querySelector('.resultadoRodada');
+
+    //Condicionais para ver quem ganhou a rodada!
+    if (valor_jogada_maquina === 'PEDRA' && jogadaPlayer.textContent.toUpperCase() === 'TESOURA') {
+        p.innerText = 'VOCê PERDEU!'
+        alterarPlacar(p)
+    } else if (valor_jogada_maquina === 'TESOURA' && jogadaPlayer.textContent.toUpperCase() === 'PAPEL') {
+        p.innerText = 'VOCê PERDEU!'
+        alterarPlacar(p)
+    } else if (valor_jogada_maquina === 'PAPEL' && jogadaPlayer.textContent.toUpperCase() === 'PEDRA') {
+        p.innerText = 'VOCê PERDEU!'
+        alterarPlacar(p)
+    } else if (valor_jogada_maquina === 'PEDRA' && jogadaPlayer.textContent.toUpperCase() === 'PAPEL') {
+        p.innerText = 'PARABÉNS VOCÊ GANHOU'
+        alterarPlacar(p)
+    } else if (valor_jogada_maquina === 'TESOURA' && jogadaPlayer.textContent.toUpperCase() === 'PEDRA') {
+        p.innerText = 'PARABÉNS VOCÊ GANHOU'
+        alterarPlacar(p)
+    } else if (valor_jogada_maquina === 'PAPEL' && jogadaPlayer.textContent.toUpperCase() === 'TESOURA') {
+        p.innerText = 'PARABÉNS VOCÊ GANHOU'
+        alterarPlacar(p)
+    } else {
+        p.innerText = 'TEMOS UM EMPATE'
+    }
+}
+
+function alterarPlacar(status) {
+    const placar_player = document.getElementById('jogador');
+    const placar_maquina = document.getElementById('maquina');
+
+    let valor_placar_jogador = Number(placar_player.textContent)
+    let valor_placar_maquina = Number(placar_maquina.textContent)
+
+    if (status.textContent === 'VOCê PERDEU!') {
+        valor_placar_maquina++
+        placar_maquina.innerText = valor_placar_maquina
+    } else if (status.textContent === 'PARABÉNS VOCÊ GANHOU') {
+        valor_placar_jogador++
+        placar_player.innerText = valor_placar_jogador
+    }
+}
+
+
+export { prepararPartida, partida, resultadoRodada }

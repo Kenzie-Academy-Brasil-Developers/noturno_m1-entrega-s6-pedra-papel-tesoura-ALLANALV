@@ -10,6 +10,7 @@ const maquina = {
     jokempo: function () {
         const image = document.createElement('img');
         const figcaption = document.createElement('figcaption');
+        figcaption.setAttribute('id', 'jokempo-maquina')
 
         const resultado = this.jogadaAleatoria();
 
