@@ -173,8 +173,42 @@ header h1{
         font-weight: bold;
         text-transform: uppercase;
     }
-    
     /* Rodada */
+
+    /* Resultado da Rodada */
+    .secaoResultado{
+        width: 300px;
+        height: 255px;
+        background-image: linear-gradient(90deg,var(--primaty-color),var(--second-color));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow:  3px 5px 15px #000;
+    }
+    .secaoResultado .resultadoRodada{
+        width: 80%;
+        text-align: center;
+        font-size: 2.5rem;
+        line-height: 32px;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .secaoResultado button{
+        width: 250px;
+        height: 60px;
+        border-radius: 50px;
+        border: 1px solid #000;
+        box-shadow: 2px 3px 10px #000;
+        background-color: var(--second-color);
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff;
+    }
+    /* Resultado da Rodada */
 /* MAIN */
 
 /* MEDIA QUERIE */
@@ -226,6 +260,18 @@ header h1{
         font-size: 5rem;
     }
     /* rodada */
+
+    /* Resultado da Rodada */
+    .secaoResultado{
+        width: 500px;
+        height: 300px;
+    }
+    .secaoResultado .resultadoRodada{
+        font-size: 4.5rem;
+        line-height: 50px;
+        width: 300px;
+    }
+    /* Resultado da Rodada */
 }
 
 @media only screen and (min-width: 1045px){
@@ -305,6 +351,10 @@ header h1{
     }
     .rodada figure figcaption{
         font-size: 3.5rem;
+    }
+
+    .secaoResultado{
+        width: 600px;
     }
 }
 /* MEDIA QUERIE */
