@@ -29,10 +29,18 @@ body{
     display: none;
 }
 
+.remove-secaoRodada{
+    display: none;
+}
+
 .add{
     display: block;
 }
 
+.borda{
+    border: 1px solid #fff;
+    background-color: #fff;
+}
 /* VARIABLES CSS */
 :root{
     font-size: 8px;
@@ -43,13 +51,13 @@ body{
 }
 /* VARIABLES CSS */
 
-@keyframes apper {
-    from{
-        height: 0px;
-        width: 100%;
-    }
-    to{
-        height: 350px;
-        width: 100%;
-    }
+.clickbutton{
+    background-image: linear-gradient(120deg,#52A1CD ,#1DC29B);
+    color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.clickAtivado{
+    background-color: #fff;
 }

@@ -1,12 +1,29 @@
-import { prepararJogo } from "./base.js";
+import { partida, prepararPartida } from "./functions/base.js";
 
 const input_name = document.getElementById('nome-jogador');
 const submit = document.getElementById('button-submit');
 
 submit.addEventListener('click', (event) => {
     event.preventDefault();
+    const jogador = document.getElementById('valor-input');
 
-    prepararJogo()
+    prepararPartida();
+    jogador.innerText = input_name.value
 
     input_name.value = ''
 });
+
+const simbolo = document.querySelectorAll('.escolha_jogada');
+
+function jogada() {
+    simbolo.forEach((jokempo) => {
+        jokempo.addEventListener('click', () => {
+            partida();
+
+            const player = document.getElementById('jogada-player');
+            player.appendChild(jokempo)
+        });
+    });
+}
+jogada()
+

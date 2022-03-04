@@ -36,20 +36,33 @@
         <section class="remove-secaoJogada">
             <h2>ESCOLHA SUA JOGADA</h2>
             <div class="simbolosJokempo">
-                <figure>
-                    <img src="./src/img/pedra.png" alt="pedra">
+                <figure id = "pedra" class="escolha_jogada">
+                    <img src="./src/img/pedra.png" alt="pedra" >
                     <figcaption>Pedra</figcaption>
                 </figure>
-                <figure>
-                    <img src="./src/img/papel.png" alt="papel">
+                <figure id = "papel" class="escolha_jogada">
+                    <img src="./src/img/papel.png" alt="papel" class="borda">
                     <figcaption>Papel</figcaption>
                 </figure>
-                <figure>
-                    <img src="./src/img/tesoura.png" alt="tesoura">
+                <figure id = "tesoura" class="escolha_jogada">
+                    <img src="./src/img/tesoura.png" alt="tesoura" class="borda">
                     <figcaption>Tesoura</figcaption>
                 </figure>
             </div>
-            <button id="jogar">Jogar</button>
+
+        </section>
+
+        <section class="remove-secaoRodada">
+            <h2>RODADA <span id="N_Rodada">1</span></h2>
+            <div class="rodada">
+                <figure id="jogada-player">
+                    
+                </figure>
+                <p>X</p>
+                <figure id="jogada-maquina">
+                    
+                </figure>
+            </div>
         </section>
     </main>
 
