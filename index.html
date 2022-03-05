@@ -15,11 +15,11 @@
     <main>
         <form>
             <h2>FUNGAMES</h2>
-            <input type="text" id="nome-jogador" placeholder="nome do jogador"  required>
+            <input type="text" id="nome-jogador" placeholder="Username"  required>
             <input type="submit" id="button-submit" value="Vamos Jogar">
         </form>
 
-        <section class="remove">
+        <section class="remove" id="secaoPlacar">
             <h2>PLACAR DO JOGO</h2>
             <div class="placar">
                 <div class="valor">
@@ -33,18 +33,19 @@
             </div>
         </section>
 
-        <section class="remove-secaoJogada">
+       <div id="container">
+        <section class="remove" id="secaoJogada">
             <h2>ESCOLHA SUA JOGADA</h2>
             <div class="simbolosJokempo">
-                <figure  class="escolha_jogada">
+                <figure  class="escolha_jogada" id="click-pedra">
                     <img src="./src/img/pedra.png" alt="pedra" >
                     <figcaption id = "pedra">Pedra</figcaption>
                 </figure>
-                <figure  class="escolha_jogada">
+                <figure  class="escolha_jogada" id="click-papel">
                     <img src="./src/img/papel.png" alt="papel" class="borda">
                     <figcaption id = "papel">Papel</figcaption>
                 </figure>
-                <figure  class="escolha_jogada">
+                <figure  class="escolha_jogada" id="click-tesoura">
                     <img src="./src/img/tesoura.png" alt="tesoura" class="borda">
                     <figcaption id = "tesoura">Tesoura</figcaption>
                 </figure>
@@ -52,23 +53,26 @@
 
         </section>
 
-        <section class="remove-secaoRodada">
+        <section class="remove" id="secaoRodada">
             <h2>RODADA <span id="N_Rodada">1</span></h2>
             <div class="rodada">
                 <figure id="jogada-player">
-                    
+                    <img src="" alt="">
+                    <figcaption></figcaption>
                 </figure>
                 <p>X</p>
                 <figure id="jogada-maquina">
-                    
+                    <img src="" alt="">
+                    <figcaption></figcaption>
                 </figure>
             </div>
         </section>
 
-        <section class="secaoResultado">
+        <section class="remove" id="secaoResultado">
             <p class="resultadoRodada"></p>
-            <button>Jogar Novamente!</button>
+            <button id="jogar-novamente">Jogar Novamente!</button>
         </section>
+       </div>
     </main>
 
     <script type="module" src="./src/js/script.js"></script>

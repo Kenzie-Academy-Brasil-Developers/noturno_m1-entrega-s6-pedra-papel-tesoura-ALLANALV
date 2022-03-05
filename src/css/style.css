@@ -208,6 +208,9 @@ header h1{
         font-weight: bold;
         color: #fff;
     }
+    .secaoResultado button:hover{
+        cursor: pointer;
+    }
     /* Resultado da Rodada */
 /* MAIN */
 
@@ -332,6 +335,15 @@ header h1{
         font-size: 3rem;
     }
     /* rodada */
+
+    /* resultado */
+
+    .secaoResultado button{
+        font-size: 3rem;
+        width: 70%;
+    }
+
+    /* resultado */
 }
 
 @media only screen and (min-width: 1810px){
