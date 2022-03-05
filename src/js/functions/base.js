@@ -1,83 +1,97 @@
-import { jogada_maquina } from "../jogo_maquina.js";
+import { Maquina } from "../models/jogo_maquina.js";
 
 const input_name = document.getElementById('nome-jogador');
 
-function prepararPartida() {
+function mostrarSecaoJogada() {
     const form = document.querySelector('form');
     const placar = document.querySelector('.remove');
-    const jogada = document.querySelector('.remove-secaoJogada')
+    const jogada = document.getElementById('secaoJogada')
 
     if (isNaN(input_name.value)) {
         form.classList.add('remove');
 
         placar.classList.remove('remove');
-        jogada.classList.remove('remove-secaoJogada')
-
         placar.classList.add('secaoPlacar');
-        jogada.classList.add('secaoJogada');
-    } else {
-        erroInput(form)
+
+        jogada.classList.toggle('secaoJogada')
     }
 
     return jogada
 }
 
-function erroInput(parent) {
-    const aviso = document.createElement('p');
-    aviso.innerText = 'Campo preenchido de forma incorreta! Por favor preencha seu nome!'
-
-    parent.appendChild(aviso)
-    return aviso
-}
-
-function partida() {
-    const secao_jogada = document.querySelector('.secaoJogada')
+function mostrarSecaoRodada() {
+    const secao_jogada = document.getElementById('secaoJogada')
     secao_jogada.classList.remove('secaoJogada');
     secao_jogada.classList.add('remove');
 
-    const secao_rodada = document.querySelector('.remove-secaoRodada');
-    secao_rodada.classList.remove('remove-secaoRodada');
+    const secao_rodada = document.getElementById('secaoRodada');
+    secao_rodada.classList.remove('remove');
     secao_rodada.classList.add('secaoRodada');
+}
+function partida() {
+    mostrarSecaoRodada();
 
     const maquina = document.getElementById('jogada-maquina');
-    adicionarJogoMaquina(maquina, jogada_maquina);
+    const jogo_maquina = new Maquina()
 
+    adicionarJogo(maquina, jogo_maquina.jokempo());
+
+    return jogo_maquina.jokempo()
 }
 
-function adicionarJogoMaquina(parent, nodes) {
+function adicionarJogo(parent, nodes) {
     nodes.forEach((elem) => {
         parent.appendChild(elem)
     })
 }
 
+function adicionarJogadaPlayer(elemento) {
+    const image = document.createElement('img');
+    const fig = document.createElement('figcaption');
+
+    image.src = elemento.children[0].src
+    fig.innerText = elemento.children[1].textContent
+
+    return [image, fig]
+}
+
+function mostrarSecaoResultado() {
+    const secao_rodada = document.getElementById('secaoRodada');
+    const secao_resultado = document.getElementById('secaoResultado');
+
+    secao_rodada.classList.remove('secaoRodada');
+    secao_rodada.classList.add('remove');
+
+    secao_resultado.classList.remove('remove');
+    secao_resultado.classList.add('secaoResultado');
+}
+
 function resultadoRodada(jogadaPlayer) {
+    mostrarSecaoResultado();
+
     const maquina = document.getElementById('jokempo-maquina');
     const valor_jogada_maquina = maquina.textContent
 
-    const p = document.querySelector('.resultadoRodada');
+    const resultado = document.querySelector('.resultadoRodada');
 
     //Condicionais para ver quem ganhou a rodada!
     if (valor_jogada_maquina === 'PEDRA' && jogadaPlayer.textContent.toUpperCase() === 'TESOURA') {
-        p.innerText = 'VOCê PERDEU!'
-        alterarPlacar(p)
+        resultado.innerText = 'VOCÊ PERDEU!'
     } else if (valor_jogada_maquina === 'TESOURA' && jogadaPlayer.textContent.toUpperCase() === 'PAPEL') {
-        p.innerText = 'VOCê PERDEU!'
-        alterarPlacar(p)
+        resultado.innerText = 'VOCÊ PERDEU!'
     } else if (valor_jogada_maquina === 'PAPEL' && jogadaPlayer.textContent.toUpperCase() === 'PEDRA') {
-        p.innerText = 'VOCê PERDEU!'
-        alterarPlacar(p)
+        resultado.innerText = 'VOCÊ PERDEU!'
     } else if (valor_jogada_maquina === 'PEDRA' && jogadaPlayer.textContent.toUpperCase() === 'PAPEL') {
-        p.innerText = 'PARABÉNS VOCÊ GANHOU'
-        alterarPlacar(p)
+        resultado.innerText = 'PARABÉNS VOCÊ GANHOU!'
     } else if (valor_jogada_maquina === 'TESOURA' && jogadaPlayer.textContent.toUpperCase() === 'PEDRA') {
-        p.innerText = 'PARABÉNS VOCÊ GANHOU'
-        alterarPlacar(p)
+        resultado.innerText = 'PARABÉNS VOCÊ GANHOU!'
     } else if (valor_jogada_maquina === 'PAPEL' && jogadaPlayer.textContent.toUpperCase() === 'TESOURA') {
-        p.innerText = 'PARABÉNS VOCÊ GANHOU'
-        alterarPlacar(p)
+        resultado.innerText = 'PARABÉNS VOCÊ GANHOU!'
     } else {
-        p.innerText = 'TEMOS UM EMPATE'
+        resultado.innerText = 'TEMOS UM EMPATE'
     }
+
+    return resultado
 }
 
 function alterarPlacar(status) {
@@ -87,14 +101,14 @@ function alterarPlacar(status) {
     let valor_placar_jogador = Number(placar_player.textContent)
     let valor_placar_maquina = Number(placar_maquina.textContent)
 
-    if (status.textContent === 'VOCê PERDEU!') {
-        valor_placar_maquina++
+    if (status.textContent === 'VOCÊ PERDEU!') {
+        valor_placar_maquina += 1
         placar_maquina.innerText = valor_placar_maquina
-    } else if (status.textContent === 'PARABÉNS VOCÊ GANHOU') {
-        valor_placar_jogador++
+    } else if (status.textContent === 'PARABÉNS VOCÊ GANHOU!') {
+        valor_placar_jogador += 1
         placar_player.innerText = valor_placar_jogador
     }
 }
 
 
-export { prepararPartida, partida, resultadoRodada }
+export { mostrarSecaoJogada, partida, adicionarJogo, adicionarJogadaPlayer, resultadoRodada, alterarPlacar }
